@@ -1,0 +1,20 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="title">专注时长</view>
+    <slider bindchange="changeWorkTime" value="{{workTime}}" name="slider" activeColor="#E96250" min="0" max="60" step="5" show-value></slider>
+  </view>
+  <view class="section">
+    <view class="title">休息时长</view>
+    <slider bindchange="changeRestTime" value="{{restTime}}" name="slider" activeColor="#E96250" min="0" max="20" show-value></slider>
+  </view>
+  <view class="section">
+    <view class="check">
+      <text class="title">背景音乐</text>   
+      <switch bindchange="onMusicTap"  color="#E96250" name="switch"/>
+    </view>
+    <view class="check">
+      <text class="title">屏幕常亮</text>
+      <switch color="#E96250" name="switch"/>
+    </view>
+  </view>
+</form>

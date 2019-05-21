@@ -1,0 +1,9 @@
+<view class="container">
+  <view class="clock">
+    <view class="time">{{min}}:{{sec}}</view>
+  </view>
+</view>
+<view class="type" wx:for="{{img}}" wx:key="{{index}}">
+  <image src='{{item.img_url}}' wx:if="{{item.id==id}}"></image>
+</view>
+<button>完成</button>
