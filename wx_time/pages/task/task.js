@@ -21,13 +21,10 @@ Page({
   },
   /*生命周期函数--监听页面加载*/
   onLoad: function (options) {
-    var workTime=20;
-    var id=5;
-    var taskname="工作";
     this.setData({
-      workTime:workTime,
-      id:id,
-      taskname:taskname
+      workTime:options.workTime,
+      id:options.id,
+      taskname:options.taskname,
     })
     var count_time=this.data.workTime+':00'
     this.count_down(count_time);
