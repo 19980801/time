@@ -12,6 +12,9 @@
   border:5px solid #E96250;
   color:#E96250;
 }
+.complete{
+  text-align:center;
+}
 .time{
   font-size:100rpx;
   font-weight: lighter;

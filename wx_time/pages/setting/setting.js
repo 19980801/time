@@ -1,4 +1,3 @@
-// pages/setting/setting.js
 var postsData = "../index/index.js"
 Page({
   data: {
@@ -20,12 +19,6 @@ Page({
     wx.setStorage({
       key: 'restTime',
       data: e.detail.value
-    })
-  },
-
-  setLoading: function (event) {
-    wx.navigateTo({
-      url: '../about/about',
     })
   },
 

@@ -1,15 +1,14 @@
 // pages/task/task.js
 const util = require('../../utils/util.js');
-var timer=null;
+
 Page({
   /* 页面的初始数据*/
   data: {
-    timer:"",
     min:0,
     sec:0,
     id:0,
     taskname:"",
-    isRuning: false,
+    complete:false,
     img:[
       { id:1, img_url:"http://127.0.0.1:3002/img/work.gif"},
       { id:2, img_url:"http://127.0.0.1:3002/img/study.gif"},
@@ -46,8 +45,10 @@ Page({
           min--;
           sec=59;
         }else{
-          console.log("时间到");
           clearInterval(Interval);
+          that.setData({
+            complete:true,
+          })
         }
       }
       that.setData({
@@ -55,6 +56,30 @@ Page({
         min: (min < 10) ? '0' + min : min,
       })
     },1000);
+  },
+  stop(){
+    if(this.data.complete==false){
+      wx.showModal({
+        title:'请继续坚持任务',
+        content:'您的任务还没结束',
+        success:function (res) {
+          if(res.confirm){
+            //这里是点击了确定以后
+            console.log('用户点击确定');
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          }else{
+            //这里是点击了取消以后
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }else{
+     wx.switchTab({
+        url:'/pages/index/index',
+      })
+    }
   },
   /* 生命周期函数--监听页面初次渲染完成*/
   onReady: function () {
